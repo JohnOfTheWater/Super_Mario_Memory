@@ -1,0 +1,20 @@
+extends ../shared/template
+
+block content
+  h1 This is the page for showing all meetups.
+  //each meetup in meetups
+  //a(href='/meetups/'+ meetup._id.toString()) #{meetup.sportName} meetup in #{meetup.city} meet up location #{meetup.city}
+  a(href='/meetups/123456789012345678901234') fakeRoute
+  .meetupWrap
+    .dateTime Date/Time
+      p March 23 - 7:30PM
+    .city City
+      p Nashville
+    .loyalty Loyalty
+      p "Predators"
+    .location Location
+      p "Jed's Sports Bar & Grille"
+    .game Game
+      p "Predators vs Peckers"
+
+

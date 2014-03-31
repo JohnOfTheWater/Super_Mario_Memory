@@ -1,0 +1,45 @@
+
+p Get Teams to Populate Database(Admin Only)
+p "Check Console for Results"
+h1 Admin Portal
+p#uid= '5328585a70820b761188da0d'
+
+#Teams
+  h2 Get Teams
+  //value is for url purposes; static
+  select#sportTeam
+    option(value='hockey/nhl') Hockey
+    option(value='football/nfl') Football
+    option(value='basketball/nba') Basketball
+    option(value='baseball/mlb') Baseball
+  button#getTeams Submit
+
+#Games
+  h2 Get Games
+
+  select#sportGames
+    option(selected=true) Select One
+    option(value='hockey') Hockey
+    option(value='football') Football
+    option(value='basketball') Basketball
+    option(value='baseball') Baseball
+  select#teamGames
+  button#getGames Submit
+
+#News
+  h2 Get News
+  //value is for DB query purposes; finds teams by sport
+  //sport is used with the team's leagueShortName for url purposes
+  select#sportNews
+    option(selected=true) Select One
+    option(value='hockey') Hockey
+    option(value='football') Football
+    option(value='basketball') Basketball
+    option(value='baseball') Baseball
+  select#teamNews
+  button#getNews Submit
+
+script(src='/js/vendor/jquery.js')
+script(src='/js/vendor/lodash.js')
+script(src='/js/source/admin.js')
+script(src='/js/source/news.js')

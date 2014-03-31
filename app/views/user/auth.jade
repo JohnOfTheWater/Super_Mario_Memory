@@ -1,0 +1,22 @@
+extends ../shared/template
+
+block content
+  h1 #{title}&#11041;de
+  if !user
+    form(method='post', action='/login')
+      fieldset#login
+        #evernode EverN&#11041;de
+        .row
+          .small-12.columns
+            label Email
+            input(name='email', type='email')
+        .row
+          .small-12.columns
+            label Password
+            input(name='password', type='password')
+        .row
+          .small-4.columns
+            button.small.radius Login
+  else
+    h1 please register and login
+

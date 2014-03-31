@@ -1,0 +1,58 @@
+extends ../shared/template
+
+block content
+  if user
+    h1 Welcome back #{user.name}!
+    a(href='/stuff') click here to check your notes collection
+
+  else
+    h1#welcome Welcome to EverN&#11041;de
+    marquee#marquee1(scrollamount='6', direction='down') You'll never believe it...
+    marquee#marquee2(scrollamount='5', direction='down') ...add some mushrooms...
+    marquee#marquee3(scrollamount='7', direction='down') ...yesterday I was wondering...
+    marquee#marquee4(scrollamount='5', direction='down') ...the sum of &#960...
+    marquee#marquee5(scrollamount='6', direction='down') ...taking a deep breath...
+    marquee#marquee6(scrollamount='5', direction='down') That person was...
+    marquee#marquee7(scrollamount='4', direction='down') good bye!
+    marquee#marquee8(scrollamount='5', direction='down') ...so good to see you...
+    marquee#marquee9(scrollamount='4', direction='down') Once upon a time...
+    marquee#marquee10(scrollamount='6', direction='down') ...one two three...
+    //marquee(style='z-index:2;position:absolute;left:247;top:93;font-family:Cursive;font-size:14pt;color:ffcc00;height:25;', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:117;top:116;font-family:Cursive;font-size:14pt;color:ffcc00;height:202;', scrollamount='2', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:59;top:53;font-family:Cursive;font-size:14pt;color:ffcc00;height:306;', scrollamount='3', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:69;top:17;font-family:Cursive;font-size:14pt;color:ffcc00;height:223;', scrollamount='2', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:59;top:103;font-family:Cursive;font-size:14pt;color:ffcc00;height:339;', scrollamount='5', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:62;top:69;font-family:Cursive;font-size:14pt;color:ffcc00;height:360;', scrollamount='5', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:96;top:49;font-family:Cursive;font-size:14pt;color:ffcc00;height:335;', scrollamount='4', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:68;top:82;font-family:Cursive;font-size:14pt;color:ffcc00;height:403;', scrollamount='6', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:273;top:73;font-family:Cursive;font-size:14pt;color:ffcc00;height:481;', scrollamount='2', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:75;top:119;font-family:Cursive;font-size:14pt;color:ffcc00;height:204;', scrollamount='5', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:144;top:43;font-family:Cursive;font-size:14pt;color:ffcc00;height:247;', scrollamount='6', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:288;top:23;font-family:Cursive;font-size:14pt;color:ffcc00;height:464;', scrollamount='6', direction='down') Text... or snow?!
+    //marquee(style='z-index:2;position:absolute;left:161;top:59;font-family:Cursive;font-size:14pt;color:ffcc00;height:248;', scrollamount='5', direction='down') Text... or snow?!
+    span(style='position:absolute;top:400px')
+
+    form(action='/auth', method='post', enctype='multipart/form-data')
+      fieldset#regFieldset
+        .row
+          .small-7.columns
+            label User Name
+            input#regName(type='text', name='name', autofocus='true')
+          .small-5.columns
+            &nbsp;
+        .row
+          .small-6.columns
+            label Email
+            input(type='email', name='email')
+          .small-6.columns
+            label Password
+            input(type='password', name='password')
+        .row
+          .small-8.columns
+            label Profile Picture
+            input(type='file', name='photo')
+          .small-4.columns
+            button.small.radius Register!
+        #closeReg close[x]
+        a(href='/login')#signIn Sign In
+

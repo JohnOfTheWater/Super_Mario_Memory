@@ -1,0 +1,54 @@
+extends ../shared/template
+
+block content
+  h1 This is the edit profile page.
+  h1= title
+  .row
+    .small-8.columns
+      form(action='/updateUserInfo', method='post')
+        fieldset
+          legend User info
+          .row
+            .small-12.columns
+              .row
+                .small-6.columns
+                  label Name
+                  input(name='name', type='text', value= user.name)
+                .small-6.columns
+                  label Email
+                  input(name='email', type='text', value= user.email)
+              .row
+                .small-6.columns
+                  button.small.radius Submit
+                .small-6.columns
+  .row
+    .small-6.columns
+      form(action='/updateFavorites', method='post', enctype='multipart/form-data')
+        fieldset
+          legend Favorite Teams
+          .small-3.columns
+            select(type='hidden', name='NFLTeam', value='post')
+              option(value='noTeam') NFL
+              each team in NFLTeams
+                option(value=team._id)= team.name
+          .small-3.columns
+            select(type='hidden', name='NHLTeam', value='post')
+              option(value='noTeam') NHL
+              each team in NHLTeams
+                option(value=team._id)= team.name
+          .small-3.columns
+            select(type='hidden', name='MLBTeam', value='post')
+              option(value='noTeam') MLB
+              each team in MLBTeams
+                option(value=team._id)= team.name
+          .small-3.columns
+            select(type='hidden', name='NBATeam', value='post')
+              option(value='noTeam') NBA
+              each team in NBATeams
+                option(value=team._id)= team.name
+          button.small.radius Submit
+
+          .row
+            .small-12.columns
+  .row
+    .small-6.columns

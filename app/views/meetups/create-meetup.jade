@@ -1,0 +1,26 @@
+extends ../shared/template
+
+block content
+  h1= title
+    .row
+      .small-12.columns
+        form(action='/meetups', method='post', enctype='multipart/form-data')
+          fieldset
+            legend New Meetup
+            .row
+              .small-6.columns
+                input(type='hidden', name='userId', value='userId')
+                input(type='text', name='address', autofocus=true)
+                input(type='text', name='locationName')
+                select(name='sports')
+                  option(value='Football')
+                  option(value='Hockey')
+                  option(value='Basketball')
+                  option(value='Baseball')
+                select(name='teams')
+                  option
+                select(name='myTeams')
+                  option
+                select(name='game')
+                  option
+

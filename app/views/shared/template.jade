@@ -1,0 +1,64 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/less/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    nav.top-bar
+      ul.title-area
+        li.name
+          h1: a(href="/") EverN&#11041;de
+        li.toggle-topbar.menu-icon
+          a(href="#") Menu
+      section.top-bar-section
+        ul.left
+          if user
+            li.name
+              input#search(type='search', placeholder='search...', results='0')
+              button.tiny.radius#firstSrc Search
+        ul.right
+            li
+            li.divider
+            if !user
+              li: a#regLog Register/Login
+            if user
+              li: a#rollo(href='/')= user ? user.name : 'anon'
+              li.divider
+              li.has-dropdown.not-click
+                a(href='/') &#11041;
+                ul.dropdown
+                  //li: a#test(href='/test') Test
+                  //li.divider
+                  li: a#home(href='/notes') Home
+                  li.divider
+                  li: a#searchCommand Search Options
+                  li.divider
+                  li: a#showN Create New Note
+                  li.divider
+                  li.has-form
+                    form(action='/logout',method='post')
+                      button.alert.tiny.radius.expand Logout
+
+    block content
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/jquery-ui.js')
+    script(src='/js/vendor/foundation.min.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/vendor/moment.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBMtvvvpS6EdDRhhcPa-gbRaoOe7BQR6dk&sensor=false&libraries=places')
+    script(src='/js/source/mymain.js')
+    script(src='/js/source/npr.js')
+    script(src='/js/source/drag.js')
+    script(src='/js/source/webcam.js')
+    script(src='/js/source/bg.js')
+    //script(src='/js/source/news.js')
+    //script(src='/js/source/map.js')
+    script(src='/js/source/main.js')
+

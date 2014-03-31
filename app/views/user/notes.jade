@@ -1,0 +1,73 @@
+extends ../shared/template
+
+block content
+  h1#testo EverN&#11041;de
+  h1#testoUser= user.name
+  .profilePic(style='background-image:url("'+user.photo+'")')
+
+  form(action='/notes', method='post')
+    fieldset#newNote
+      legend New Note
+      .row
+        .small-6.columns
+          input(name='lat', type='text')#lat
+          input(name='lng', type='text')#lng
+          label Title
+          input#noteTitle(name='title', type='text', autofocus=true)
+        .small-6.columns
+          label Date Created
+          input(name='dateCreated', type='date')
+      .row
+        .small-8.columns
+          label Tags
+          input(name='tags', type='text')
+        .small-4.columns
+          &nbsp;
+      .row
+        .small-12.columns
+          label Body
+          textarea(rows=21, name='body')
+      .row
+        .small-12.columns
+          button.small.radius Create
+      #closeNewNote close[x]
+  if notes
+    #notesWrap
+      each note in notes
+        .picture(value= note._id)
+          .title: a(href='#' + note._id)= note.title
+          .date= moment(note.dateCreated).format('MMMM Do, YYYY')
+          .tags= note.tags
+          .sample #{note.sample}...
+  #noteWrap
+    #title
+    #date
+    hr#line
+    //#body
+    #tags
+    //#form
+    #picture
+    #fullNote
+    #searchPanel
+      #closeSP close[x]
+      #sort Sort
+        button.small.radius#dateS By Date
+        button.small.radius#alpha By Name
+      #searchP Search
+        input#srcName(type='text', placeholder='search by name...')
+        button.small.radius#srcNB Search
+        input#srcDate(type='date')
+        button.small.radius#srcDB Search
+        input#srcTags(type='text', placeholder='search by tags...')
+        button.small.radius#srcTB Search
+  #searchResult
+    #result
+
+//form(action='/albums/' + album._id, method='post', enctype='multipart/form-data')
+//fieldset
+//input(type='file', name='photo')
+//button.tiny.radius Add Photo
+
+//form(action='/notes/' + note._id, method='post')
+//input(type='hidden', name='_method', value='delete')
+//button.alert.small.radius Delete

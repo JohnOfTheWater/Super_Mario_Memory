@@ -1,0 +1,36 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/less/app.css')
+    link(rel='stylesheet', type='text/css', href='style.css')
+  body
+    ul
+      li#startRecording
+        a(href='#') Start Recording
+      li#stopRecording
+        a(href='#') Stop Recording
+      li#playBack
+        a(href='#') Play Recorded Sound
+      li#upload
+        a(href='#') Upload
+    p.status
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.min.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/vendor/modernizr.js')
+    script(src='/js/vendor/moment.js')
+    script(src='//connect.soundcloud.com/sdk.js')
+    script(src='script.js')
+    script(src='/js/source/news.js')
+    //script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBMtvvvpS6EdDRhhcPa-gbRaoOe7BQR6dk&sensor=false&libraries=places')
+    //script(src='/js/source/map.js')
+    //script(src='/js/source/mymain.js')
+    //script(src='/js/source/main.js')
+
