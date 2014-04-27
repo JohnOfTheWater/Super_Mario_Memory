@@ -1,0 +1,60 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/less/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    #h1= title
+    #controls
+      button.tiny.radius#start START!
+      #scoreBox -- Score --
+        h2#score -00000-
+        #plus500 +500!
+        #minus500 -600!
+      button.tiny.radius#reset Reset
+      button.tiny.radius#hiScore High-Scores
+    #grid
+      - for(var i = 0; i <= 19; i++)
+        img.box
+
+    #nice
+      #niceText Nice!
+
+    #tooBad
+      #tooBadText Ouch!
+
+    img#gameOver(src='http://static3.wikia.nocookie.net/__cb20130804000238/fantendo/images/thumb/f/f5/Super_mario_by_mintenndo-d62lh70.png/433px-Super_mario_by_mintenndo-d62lh70.png')
+    #excellent VICTORY!<br>Excellent Score!<br>-00000- points!
+
+    #enterScore
+      input#scoreName(type='text', placeholder='enter your name...')
+      input#scoreDate(type='date')
+      #scoreScore 10000
+      button.tiny.radius#submit Submit Score
+      #checkHiScore High-Scores
+      #appendino
+
+    #scoriAlti
+      #closeScori close[x]
+      #scori Hi-Scores
+
+    footer <small>(c) 2014, Nashville Software School</small>
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/jquery-ui.js')
+    script(src='/js/vendor/foundation.min.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/vendor/moment.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBMtvvvpS6EdDRhhcPa-gbRaoOe7BQR6dk&sensor=false&libraries=places')
+    script(src='/js/source/geo.js')
+    script(src='/js/source/main.js')
+    script(src='/js/source/drag.js')
+    script(src='/js/source/webcam.js')
+    script(src='/js/source/bg.js')
+

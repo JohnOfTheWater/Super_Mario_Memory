@@ -22,6 +22,10 @@ function load(app, fn){
 
   //-----Reg/Login--------//
   app.get('/', d, home.index);
+  //-----get HiScores--------//
+  app.get('/HiScores', d, home.getScores);
+  //-----addScore--------//
+  app.post('/score', d, home.create);
   //-----Test--------//
   app.get('/test', d, home.test);
   //-----endTest--------//

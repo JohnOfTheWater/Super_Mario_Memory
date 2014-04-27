@@ -6,7 +6,6 @@
 
   function initialize(){
     $(document).foundation();
-    //$('#meetup-submit').click(submitMeetup);
     background();
   }
 

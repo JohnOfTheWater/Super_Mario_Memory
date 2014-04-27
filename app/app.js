@@ -10,8 +10,8 @@ var RedisStore = require('connect-redis')(session);
 var initMongo  = require('./lib/init-mongo');
 var initRoutes = require('./lib/init-routes');
 
-var lookupUser = require('./lib/lookup-user');
-var bounceUser = require('./lib/bounce-user');
+//var lookupUser = require('./lib/lookup-user');
+//var bounceUser = require('./lib/bounce-user');
 //var getGames = require('./lib/get-games');
 
 var app = express();
@@ -34,8 +34,8 @@ app.use(express.session({
   cookie: { maxAge: 24 * 60 * 60 * 1000 }
 }));
 
-app.use(lookupUser);
-app.use(bounceUser);
+//app.use(lookupUser);
+//app.use(bounceUser);
 //app.use(getGames);
 
 app.use(app.router);
