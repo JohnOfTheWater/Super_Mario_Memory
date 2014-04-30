@@ -24,6 +24,7 @@ exports.create = function(req, res){
   console.log('XXXXXXname: '+req.body.name);
   console.log('date: '+req.body.date);
   console.log('points: '+req.body.points);
+  req.body.points = req.body.points*1;
   var score = new Score(req.body);
   score.insert(function(count){
     res.send({count:count});

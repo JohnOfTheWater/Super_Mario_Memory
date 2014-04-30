@@ -123,6 +123,8 @@
     //var id = $(this).attr('value');
     var name = $('#scoreName').val();
     var points = $('#scoreScore').text();
+    points = points.replace(/-/g, '');
+    //points = pippo(points);
     var date = $('#scoreDate').val();
     var k = {name:name, points:points, date:date};
     var data = k;
@@ -139,6 +141,7 @@
     $.ajax({url:url, type:type, data:data, success:success});
   }
 
+
   function showHiScore(){
     $('#gameOver').fadeOut(500);
     $('#excellent').fadeOut(500);
@@ -152,7 +155,6 @@
   }
 
   function displayHiScores(data){
-    debugger;
     $('.position').remove();
     console.log(data);
     for(var i = 0; i < data.scores.length; i++){
@@ -161,16 +163,16 @@
   }
 
   function appendScores(score, i){
-    debugger;
     var $name = $('<div>');
     var $points = $('<div>');
     var $date = $('<div>');
     var $position = $('<div>');
     var name = score.name.slice(0, 5);
     var date = score.date.slice(0, 10);
+    var points = pippo(score.points);
 
     $name.text(name).addClass('ScoreName').attr('value', score.name);
-    $points.text(score.points).addClass('ScorePoints').attr('value', score.points);
+    $points.text('-'+points+'-').addClass('ScorePoints').attr('value', score.points);
     $date.text(date).addClass('ScoreDate').attr('value', score.date);
     $position.text('# '+(i+1)).addClass('position');
 
@@ -199,6 +201,7 @@
   }
 
   function displayScores(data){
+    debugger;
     $('.posizion').remove();
     for(var i = 0; i < data.scores.length; i++){
       appendScori(data.scores[i], i);
@@ -212,9 +215,10 @@
     var $position = $('<div>');
     var name = score.name.slice(0, 5);
     var date = score.date.slice(0, 10);
+    var points = pippo(score.points);
 
     $name.text(name).addClass('ScoriName').attr('value', score.name);
-    $points.text(score.points).addClass('ScoriPoints').attr('value', score.points);
+    $points.text('-'+points+'-').addClass('ScoriPoints').attr('value', score.points);
     $date.text(date).addClass('ScoriDate').attr('value', score.date);
     $position.text('# '+(i+1)).addClass('posizion');
 
@@ -230,6 +234,20 @@
 
   function closeHiScore(){
     $('#scoriAlti').fadeOut(500);
+  }
+
+  function pippo(x){
+    x = x.toString();
+    var y;
+    var k;
+    if (x.length === 4){
+      y = x.substr(0, 1);
+      k = x.substr(1);
+    }else{
+      y = x.substr(0, 2);
+      k = x.substr(2);
+    }
+    return y + '.' + k;
   }
 
 })();
